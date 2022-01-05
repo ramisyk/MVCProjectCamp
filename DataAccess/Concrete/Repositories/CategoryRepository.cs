@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,12 @@ namespace DataAccess.Concrete.Repositories
             context.SaveChanges();
         }
 
-        public List<Category> GetAll()
+        public Category Get(Expression<Func<Category, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
         {
             return _object.ToList();
         }
