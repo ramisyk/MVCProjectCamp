@@ -10,23 +10,16 @@ namespace Business.Concrete
 {
     public class CategoryManager
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+        //GenericRepository<Category> repo = new GenericRepository<Category>();
 
-        public List<Category> GetAll()
-        {
-            return repo.GetAll();
-        }
+        //public List<Category> GetAll()
+        //{
+        //    return repo.GetAll();
+        //}
 
-        public void Add(Category category)
-        {
-            if(category.CategoryName.Length < 4)
-            {
-                //Error Message
-            }
-            else
-            {
-                repo.Add(category);
-            }
-        }
+        //public void Add(Category category)
+        //{
+        //    repo.Add(category);
+        //}
     }
 }
