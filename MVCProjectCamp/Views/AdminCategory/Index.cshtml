@@ -1,20 +1,39 @@
-﻿
+﻿@using Entity.Concrete
+@model List<Category>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
+
 <div class="container">
-    <table class="table table-bordered" style="margin-top:20px">
+    <h2>Tablo Örneği - Kategori</h2>
+
+    <table class="table table-hover table-striped">
         <tr>
             <th>Id</th>
-            <th>Kategori</th>
-            <th>Durum</th>
+            <th>Ad</th>
+            <th>Açıklama</th>
+            <th>Durumu</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Başlıklar</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>abc</td>
-            <td>aktif</td>
-        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.CategoryId</td>
+        <td>@item.CategoryName</td>
+        <td>@item.CategoryDescription</td>
+        <td>@item.CategoryStatus</td>
+        <td><a href="#" class="btn btn-danger">Sil</a></td>
+        <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+        <td><a href="#" class="btn btn-success">Başlıklar</a></td>
+    </tr>
+        }
     </table>
+    <a class="btn btn-info" href="/AdminCategory/AddCategory">Yeni Kategori</a>
 </div>
+
