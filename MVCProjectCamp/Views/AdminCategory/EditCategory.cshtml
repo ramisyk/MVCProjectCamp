@@ -1,9 +1,12 @@
 ﻿@model Entity.Concrete.Category
 
 @{
-    ViewBag.Title = "AddCategory";
+    ViewBag.Title = "EditCategory";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+<h2>Düzenle...</h2>
+
 
 <div class="container">
     <h1>Yeni Kategori Ekleme Sayfası</h1>
@@ -14,7 +17,7 @@
     {
         <div class="form-group">
             @Html.Label("Kategori Adı")
-            @Html.TextBoxFor(x => x.CategoryName, new { @class="form-control" })
+            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.CategoryName)
             <br />
             @Html.Label("Kategori Açıklaması")

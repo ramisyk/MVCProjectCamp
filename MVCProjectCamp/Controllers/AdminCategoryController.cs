@@ -35,13 +35,31 @@ namespace MVCProjectCamp.Controllers
             if (validationResult.IsValid)
             {
                 categoryManager.Add(category);
-                return RedirectToAction("GetCategoryList");
+                return RedirectToAction("Index");
             }
             foreach (var item in validationResult.Errors)
             {
                 ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
             }
             return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            var category = categoryManager.GetById(id);
+            categoryManager.Delete(category);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var selectedCategory = categoryManager.GetById(id);
+            return View(selectedCategory);
+        }
+        [HttpPost]
+        public ActionResult EditCategory(int id)
+        {
+            var selectedCategory = categoryManager.GetById(id);
+            return View(selectedCategory);
         }
     }
 }
