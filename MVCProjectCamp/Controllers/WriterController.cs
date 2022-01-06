@@ -42,5 +42,27 @@ namespace MVCProjectCamp.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writer = writerManager.GetById(id);
+            return View(writer);
+        }
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult validationResult = writerValidator.Validate(writer);
+
+            if (validationResult.IsValid)
+            {
+                writerManager.Update(writer); return RedirectToAction("Index");
+            }
+            foreach (var item in validationResult.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
+        }
     }
 }
