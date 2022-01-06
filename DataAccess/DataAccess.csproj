@@ -64,6 +64,7 @@
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
