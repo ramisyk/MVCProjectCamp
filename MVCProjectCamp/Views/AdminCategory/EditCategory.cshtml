@@ -13,19 +13,22 @@
     <br />
     Hoş Geldiniz
 
-    @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+    @using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
     {
-        <div class="form-group">
-            @Html.Label("Kategori Adı")
-            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.CategoryName)
-            <br />
-            @Html.Label("Kategori Açıklaması")
-            @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.CategoryDescription)
+<div class="form-group">
+    @Html.Label("Id")
+    @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryName)
+    <br />
+    @Html.Label("Kategori Açıklaması")
+    @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryDescription)
 
-            <br />
-            <button class="btn btn-info">KAYDET</button>
-        </div>
+    <br />
+    <button class="btn btn-info">KAYDET</button>
+</div>
     }
 </div>

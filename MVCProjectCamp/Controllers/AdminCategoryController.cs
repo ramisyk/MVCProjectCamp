@@ -56,10 +56,10 @@ namespace MVCProjectCamp.Controllers
             return View(selectedCategory);
         }
         [HttpPost]
-        public ActionResult EditCategory(int id)
+        public ActionResult EditCategory(Category category)
         {
-            var selectedCategory = categoryManager.GetById(id);
-            return View(selectedCategory);
+            categoryManager.Update(category);
+            return RedirectToAction("Index");
         }
     }
 }
