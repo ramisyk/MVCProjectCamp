@@ -35,6 +35,11 @@ namespace Business.Concrete
             return _categoryDal.GetAll();
         }
 
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(category => category.CategoryId == id);
+        }
+
         public void Update(Category category)
         {
             _categoryDal.Update(category);
