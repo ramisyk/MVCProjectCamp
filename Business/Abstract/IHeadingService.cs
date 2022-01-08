@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace Business.Abstract
 {
     public interface IHeadingService
     {
+        List<Heading> GetAll();
+        void Add(Heading heading);
+        void Update(Heading heading);
+        void Delete(Heading heading);
+
+        Heading GetById(int id);
     }
 }
