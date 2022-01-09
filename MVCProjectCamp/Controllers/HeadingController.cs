@@ -25,18 +25,18 @@ namespace MVCProjectCamp.Controllers
         public ActionResult AddHeading()
         {
             List<SelectListItem> categories = (from x in categoryManager.GetAll()
-                                             select new SelectListItem
-                                             {
-                                                 Text = x.CategoryName,
-                                                 Value = x.CategoryId.ToString()
-                                             }).ToList();
-
-            List<SelectListItem> writers = (from x in writerManager.GetAll()
                                                select new SelectListItem
                                                {
-                                                   Text = x.WriterName + " " + x.WriterSurname,
-                                                   Value = x.WriterId.ToString()
+                                                   Text = x.CategoryName,
+                                                   Value = x.CategoryId.ToString()
                                                }).ToList();
+
+            List<SelectListItem> writers = (from x in writerManager.GetAll()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.WriterName + " " + x.WriterSurname,
+                                                Value = x.WriterId.ToString()
+                                            }).ToList();
             ViewBag.categories = categories;
             ViewBag.writers = writers;
             return View();
@@ -49,6 +49,11 @@ namespace MVCProjectCamp.Controllers
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             headingManager.Add(heading);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ContentByHeading()
+        {
+            return View();
         }
     }
 }

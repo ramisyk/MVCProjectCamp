@@ -26,6 +26,8 @@ namespace Entity.Concrete
         [StringLength(200)]
         public string WriterPassword { get; set; }
 
+        public bool WriterStatus { get; set; }
+
         public ICollection<Heading> Heading { get; set; }
         public ICollection<Content> Contents { get; set; }
     }
