@@ -1,18 +1,24 @@
 ﻿@model Entity.Concrete.Heading
 
 @{
-    ViewBag.Title = "AddHeading";
+    ViewBag.Title = "EditHeading";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-<h2>Başlık ekle</h2>
-@using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
+<h2>Başlık Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditHeading", "Heading", FormMethod.Post))
 {
 <div class="form-group">
+    @Html.Label("Başlık Id")
+    @Html.TextBoxFor(x => x.HeadingId, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HeadingName)
+
     @Html.Label("Başlık Adı")
     @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.HeadingName)
+
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.HeadingDate, new { @class = "form-control" })
 
     @Html.Label("Kategori")
     @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categories, new { @class = "form-control" })
@@ -21,6 +27,7 @@
     @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.writers, new { @class = "form-control" })
 
     <br />
-    <button class="btn btn-info">Başlık Ekle</button>
+    <button class="btn btn-info">Değişiklikleri Kaydet</button>
 </div>
 }
+

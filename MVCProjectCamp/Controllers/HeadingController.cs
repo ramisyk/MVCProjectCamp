@@ -51,9 +51,41 @@ namespace MVCProjectCamp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ContentByHeading()
+        [HttpGet]
+        public ActionResult EditHeading(int id)
         {
-            return View();
+            List<SelectListItem> categories = (from x in categoryManager.GetAll()
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.CategoryName,
+                                                   Value = x.CategoryId.ToString()
+                                               }).ToList();
+
+            List<SelectListItem> writers = (from x in writerManager.GetAll()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.WriterName + " " + x.WriterSurname,
+                                                Value = x.WriterId.ToString()
+                                            }).ToList();
+            ViewBag.categories = categories;
+            ViewBag.writers = writers; 
+            
+            var heading = headingManager.GetById(id);
+            return View(heading);
+        }
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading)
+        {
+
+            headingManager.Update(heading);
+            return View(heading);
+        }
+        public ActionResult DeleteHeading(int id)
+        {
+            var heading = headingManager.GetById(id);
+            heading.HeadingStatus = false;
+            headingManager.Update(heading);
+            return RedirectToAction("Index");
         }
     }
 }

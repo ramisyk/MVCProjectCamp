@@ -35,7 +35,7 @@ namespace Business.Concrete
 
         public Heading GetById(int id)
         {
-            return _headingDal.Get(heading => heading.CategoryId == id);
+            return _headingDal.Get(heading => heading.HeadingId == id);
         }
 
         public void Update(Heading heading)
