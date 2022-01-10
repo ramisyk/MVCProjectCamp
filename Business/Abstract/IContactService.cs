@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace Business.Abstract
 {
     public interface IContactService
     {
+        List<Contact> GetAll();
+        void Add(Contact contact);
+        void Update(Contact contact);
+        void Delete(Contact contact);
+
+        Contact GetById(int id);
     }
 }
