@@ -24,5 +24,10 @@ namespace MVCProjectCamp.Controllers
             var contact = contactManager.GetById(id);
             return View(contact);
         }
+
+        public PartialViewResult MessageSideNav()
+        {
+            return PartialView();
+        }
     }
 }
