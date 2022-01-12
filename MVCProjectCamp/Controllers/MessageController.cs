@@ -13,9 +13,14 @@ namespace MVCProjectCamp.Controllers
         MessageManager messageManager = new MessageManager(new EfMessageDal());
 
         // GET: Message
-        public ActionResult Index()
+        public ActionResult Inbox()
         {
-            var result = messageManager.GetAll();
+            var result = messageManager.GetAllInbox();
+            return View(result);
+        }
+        public ActionResult Sendbox()
+        {
+            var result = messageManager.GetAllSendbox();
             return View(result);
         }
     }
