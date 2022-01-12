@@ -30,7 +30,17 @@ namespace Business.Concrete
 
         public List<Message> GetAll()
         {
+            return _messageDal.GetAll();
+        }
+
+        public List<Message> GetAllInbox()
+        {
             return _messageDal.GetAll(x => x.ReceiverMail == "admin@admin.com");
+        }
+
+        public List<Message> GetAllSendbox()
+        {
+            return _messageDal.GetAll(x => x.SenderMail == "admin@admin.com");
         }
 
         public Message GetById(int id)
