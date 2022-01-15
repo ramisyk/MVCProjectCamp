@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,17 @@ namespace MVCProjectCamp.Controllers
         {
             var result = messageManager.GetAllSendbox();
             return View(result);
+        }
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            messageManager.Add(message);
+            return RedirectToAction("Index");
         }
     }
 }
