@@ -24,6 +24,11 @@ namespace MVCProjectCamp.Controllers
             var result = messageManager.GetAllSendbox();
             return View(result);
         }
+        public ActionResult GetMessageDetails(int id)
+        {
+            var result = messageManager.GetById(id);
+            return View(result);
+        }
         [HttpGet]
         public ActionResult NewMessage()
         {

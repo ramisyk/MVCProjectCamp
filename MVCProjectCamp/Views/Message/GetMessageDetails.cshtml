@@ -1,7 +1,7 @@
-﻿@model Entity.Concrete.Contact
+﻿@model Entity.Concrete.Message
 
 @{
-    ViewBag.Title = "GetContactDetails";
+    ViewBag.Title = "GetMessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -45,7 +45,7 @@
                             <div class="mailbox-read-info">
                                 <h5>Konu: @Model.Subject</h5>
                                 <h6>
-                                    From: @Model.UserMail
+                                    From: @Model.SenderMail
                                     <span class="mailbox-read-time float-right"></span>
                                 </h6>
                             </div>
@@ -53,7 +53,7 @@
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
                                 <p>
-                                    @Model.Message
+                                    @Model.MessageContent
                                 </p>
                             </div>
                             <!-- /.mailbox-read-message -->
