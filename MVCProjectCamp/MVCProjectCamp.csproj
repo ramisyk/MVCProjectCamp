@@ -2008,6 +2008,8 @@
     <Content Include="Themes\colorlib-error-404-10\img\bg.jpg" />
     <Content Include="Themes\colorlib-error-404-10\index.html" />
     <Content Include="Themes\colorlib-error-404-10\readme.txt" />
+    <Content Include="Themes\images\1.jpg" />
+    <Content Include="Themes\images\2.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

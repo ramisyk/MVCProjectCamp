@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,12 @@ namespace MVCProjectCamp.Controllers
 {
     public class GalleryController : Controller
     {
+        ImageFileManager imageFileManager = new ImageFileManager(new EfImageFileDal());
         // GET: Gallery
         public ActionResult Index()
         {
-            return View();
+            var images = imageFileManager.GetAll();
+            return View(images);
         }
     }
 }
