@@ -108,6 +108,10 @@
     <Compile Include="Migrations\202201171914418_mig_imagetbl_add.designer.cs">
       <DependentUpon>202201171914418_mig_imagetbl_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201260551479_mig_admincreated.cs" />
+    <Compile Include="Migrations\202201260551479_mig_admincreated.designer.cs">
+      <DependentUpon>202201260551479_mig_admincreated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201171914418_mig_imagetbl_add.resx">
       <DependentUpon>202201171914418_mig_imagetbl_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201260551479_mig_admincreated.resx">
+      <DependentUpon>202201260551479_mig_admincreated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
