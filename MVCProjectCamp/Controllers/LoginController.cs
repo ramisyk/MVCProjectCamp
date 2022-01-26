@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVCProjectCamp.Controllers
 {
@@ -23,6 +24,8 @@ namespace MVCProjectCamp.Controllers
             var adminInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName);
             if (adminInfo != null)
             {
+                FormsAuthentication.SetAuthCookie(adminInfo.AdminUserName, false);
+                Session["AdminUserName"] = adminInfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             return RedirectToAction("Index");
