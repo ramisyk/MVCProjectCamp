@@ -38,6 +38,11 @@ namespace Business.Concrete
             return _contentDal.GetAll(content => content.HeadingId == headingId);
         }
 
+        public List<Content> GetAllByWriterId(int writerId)
+        {
+            return _contentDal.GetAll(content => content.WriterId == writerId);
+        }
+
         public Content GetById(int id)
         {
             return _contentDal.Get(content => content.ContentId == id);

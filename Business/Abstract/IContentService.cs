@@ -16,5 +16,6 @@ namespace Business.Abstract
 
         Content GetById(int id);
         List<Content> GetAllByHeadingId(int headingId);
+        List<Content> GetAllByWriterId(int writerId);
     }
 }
