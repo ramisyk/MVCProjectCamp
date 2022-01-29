@@ -34,7 +34,7 @@ namespace Business.Concrete
         }
         public List<Heading> GetAllByWriterId(int id)
         {
-            return _headingDal.GetAll(heading => heading.WriterId == id);
+            return _headingDal.GetAll(heading => heading.WriterId == id && heading.HeadingStatus ==true);
         }
 
         public Heading GetById(int id)

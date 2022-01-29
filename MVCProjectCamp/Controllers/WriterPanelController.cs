@@ -72,5 +72,12 @@ namespace MVCProjectCamp.Controllers
             headingManager.Update(heading);
             return RedirectToAction("MyHeadings");
         }
+        public ActionResult DeleteHeading(int id)
+        {
+            var heading = headingManager.GetById(id);
+            heading.HeadingStatus = false;
+            headingManager.Update(heading);
+            return RedirectToAction("MyHeadings");
+        }
     }
 }
