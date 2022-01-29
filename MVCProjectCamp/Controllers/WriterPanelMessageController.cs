@@ -11,11 +11,12 @@ using System.Web.Mvc;
 
 namespace MVCProjectCamp.Controllers
 {
-    public class MessageController : Controller
+    public class WriterPanelMessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-        // GET: Message
+
+        // GET: WriterPanelMessage
         public ActionResult Inbox()
         {
             var result = messageManager.GetAllInbox();
@@ -31,6 +32,7 @@ namespace MVCProjectCamp.Controllers
             var result = messageManager.GetById(id);
             return View(result);
         }
+
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -43,7 +45,6 @@ namespace MVCProjectCamp.Controllers
 
             if (validationResult.IsValid)
             {
-                message.SenderMail = "admin@admin.com"; // It change with session data
                 message.MessageDate = DateTime.Now;
                 messageManager.Add(message);
                 return RedirectToAction("Inbox");
@@ -54,7 +55,12 @@ namespace MVCProjectCamp.Controllers
             }
             return View();
 
-            
+
+        }
+
+        public PartialViewResult MessageSideNav()
+        {
+            return PartialView();
         }
     }
 }
